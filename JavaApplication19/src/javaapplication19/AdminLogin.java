@@ -87,11 +87,11 @@ public class AdminLogin extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(190, 180, 100, 40);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 3, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Design: AFH");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(400, 290, 120, 30);
+        jLabel5.setBounds(20, 300, 120, 30);
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\A R F T\\Desktop\\2021-04-04 (3).png")); // NOI18N
         jLabel4.setText("Login");
