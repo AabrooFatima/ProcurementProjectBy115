@@ -12,7 +12,7 @@ package javaapplication19;
 public class VendorManage extends javax.swing.JFrame {
 
     /**
-     * Creates new form VendorManage
+     * Creates new form EmploManage
      */
     public VendorManage() {
         initComponents();
@@ -28,68 +28,139 @@ public class VendorManage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        btn1 = new javax.swing.JButton();
+        btn2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        btn3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
-        jButton1.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
-        jButton1.setText("Add Vendor");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setLayout(null);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\A R F T\\Desktop\\grd.jpg")); // NOI18N
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(0, 0, 640, 30);
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 0, 640, 0);
+
+        btn1.setBackground(new java.awt.Color(51, 204, 255));
+        btn1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        btn1.setText("Add Vendor");
+        btn1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn1MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(220, 170, 190, 40);
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn1);
+        btn1.setBounds(220, 179, 190, 40);
 
-        jButton2.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
-        jButton2.setText("Update Vendor");
-        jPanel1.add(jButton2);
-        jButton2.setBounds(220, 310, 190, 40);
+        btn2.setBackground(new java.awt.Color(51, 204, 255));
+        btn2.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        btn2.setText("Update Vendor");
+        btn2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn2);
+        btn2.setBounds(220, 310, 190, 40);
 
-        jButton3.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
-        jButton3.setText("View Vendor");
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton3.setText("Back");
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3);
-        jButton3.setBounds(220, 240, 190, 40);
+        jButton3.setBounds(490, 490, 93, 29);
 
-        jButton4.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
-        jButton4.setText("Back");
-        jPanel1.add(jButton4);
-        jButton4.setBounds(530, 500, 93, 35);
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Employee Management");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(10, 2, 200, 30);
 
-        jButton5.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
-        jButton5.setText("Close");
-        jPanel1.add(jButton5);
-        jButton5.setBounds(530, 560, 90, 35);
+        btn3.setBackground(new java.awt.Color(51, 204, 255));
+        btn3.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        btn3.setText("View Vendor");
+        btn3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn3);
+        btn3.setBounds(220, 240, 190, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\A R F T\\Desktop\\9f8a0f17274127293d1b4b81b1a2f8e5.jpg")); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 660, 620);
+        jLabel1.setBounds(0, 30, 620, 550);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\A R F T\\Desktop\\grd.jpg")); // NOI18N
+        jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(0, 0, 620, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        AddEmp f= new AddEmp();
+        this.setVisible(false);
+        f.setVisible(true);
+        
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btn1MouseClicked
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+
+                  ViewEmp f= new ViewEmp();
+                  this.setVisible(false);
+                  f.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,31 +179,34 @@ public class VendorManage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VendorManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmploManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VendorManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmploManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VendorManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmploManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VendorManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmploManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VendorManage().setVisible(true);
+                new EmploManage().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn1;
+    private javax.swing.JButton btn2;
+    private javax.swing.JButton btn3;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
