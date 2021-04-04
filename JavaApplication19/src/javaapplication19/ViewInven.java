@@ -9,12 +9,12 @@ package javaapplication19;
  *
  * @author A R F T
  */
-public class ViewVen extends javax.swing.JFrame {
+public class ViewInven extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewReq
      */
-    public ViewVen() {
+    public ViewInven() {
         initComponents();
         setSize(860,680);
         setResizable(false);
@@ -47,7 +47,7 @@ public class ViewVen extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Name", "Contact", "Email", "Action"
+                "Item", "Quantity", "Vendor", "Action"
             }
         ));
         jTable1.setRowHeight(45);

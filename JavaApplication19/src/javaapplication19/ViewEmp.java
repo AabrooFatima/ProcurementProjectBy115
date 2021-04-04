@@ -35,11 +35,19 @@ public class ViewEmp extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 0, 0);
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
@@ -61,16 +69,18 @@ public class ViewEmp extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
-        );
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 0, 670, 452);
+
+        jButton1.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
+        jButton1.setText("Back");
+        jPanel1.add(jButton1);
+        jButton1.setBounds(560, 470, 81, 35);
+
+        jButton2.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
+        jButton2.setText("Close");
+        jPanel1.add(jButton2);
+        jButton2.setBounds(560, 530, 87, 35);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 670, 590);
@@ -114,6 +124,9 @@ public class ViewEmp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

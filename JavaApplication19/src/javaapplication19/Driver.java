@@ -16,7 +16,7 @@ public class Driver {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Login form =new Login();
+        ViewVen form =new ViewVen();
         form.setVisible(true);
     }
     

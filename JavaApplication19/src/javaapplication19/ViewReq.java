@@ -29,6 +29,8 @@ public class ViewReq extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -49,7 +51,17 @@ public class ViewReq extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(0, 0, 860, 640);
+        jScrollPane1.setBounds(0, 0, 860, 530);
+
+        jButton1.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
+        jButton1.setText("Back");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(750, 540, 81, 35);
+
+        jButton2.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
+        jButton2.setText("Close");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(750, 590, 87, 35);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -90,6 +102,8 @@ public class ViewReq extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

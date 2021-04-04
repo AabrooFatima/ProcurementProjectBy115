@@ -9,14 +9,14 @@ package javaapplication19;
  *
  * @author A R F T
  */
-public class ViewVen extends javax.swing.JFrame {
+public class ManageReq extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewReq
+     * Creates new form ManageReq
      */
-    public ViewVen() {
+    public ManageReq() {
         initComponents();
-        setSize(860,680);
+        setSize(710,671);
         setResizable(false);
     }
 
@@ -29,55 +29,47 @@ public class ViewVen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setLayout(null);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Name", "Contact", "Email", "Action"
+                "Emp ID", "Name", "Request", "Quantity", "Action"
             }
         ));
         jTable1.setRowHeight(45);
-        jTable1.setSelectionBackground(new java.awt.Color(102, 204, 255));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(0, 0, 860, 510);
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 0, 710, 550);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 255));
-        jPanel1.setLayout(null);
-
-        jButton1.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
-        jButton1.setText("Back");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton1);
-        jButton1.setBounds(730, 10, 110, 33);
-
-        jButton2.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
-        jButton2.setText("Close");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton2);
-        jButton2.setBounds(730, 70, 110, 33);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\A R F T\\Desktop\\9f8a0f17274127293d1b4b81b1a2f8e5.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\A R F T\\Desktop\\bad.jpg")); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 730, 130);
+        jLabel1.setBounds(0, 550, 670, 120);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 510, 860, 130);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -99,27 +91,25 @@ public class ViewVen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewReq.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageReq.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewReq.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageReq.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewReq.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageReq.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewReq.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManageReq.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewReq().setVisible(true);
+                new ManageReq().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
