@@ -115,7 +115,7 @@ public class AdminMenu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-                 ManageEmploy form = new ManageEmploy();
+                 EmploManage form = new EmploManage();
                  form.setVisible(true);
                  this.setVisible(false);
         // TODO add your handling code here:
