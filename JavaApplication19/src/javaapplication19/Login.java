@@ -245,20 +245,18 @@ public class Login extends javax.swing.JFrame {
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
                   String p=pass.getText();
                   String log=id.getText();
-                 if(p.equals("a") && log.equals(1));
-                 {
-                     AdminMenu f=new AdminMenu();
-                     this.setVisible(false);
-                     f.setVisible(true);
-                 }
+                 
+                 
+                     /*if(p.equals("admin115") && log.equals("AFH115"))
+                     {
+                        
+                     }*/
+                      Forms f= new Forms("Admin");
+                         f.setVisible(true);
+                         this.setVisible(false);
+                 
         // TODO add your handling code here:
     }//GEN-LAST:event_loginActionPerformed
-
-    private void adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminActionPerformed
-        // TODO add your handling code here:
-        a.setVisible(true);
-        a.setText("Admin");
-    }//GEN-LAST:event_adminActionPerformed
 
     private void employActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employActionPerformed
         // TODO add your handling code here:
@@ -271,6 +269,12 @@ public class Login extends javax.swing.JFrame {
         a.setVisible(true);
         a.setText("Manager");
     }//GEN-LAST:event_managerActionPerformed
+
+    private void adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminActionPerformed
+        // TODO add your handling code here:
+        a.setVisible(true);
+        a.setText("Admin");
+    }//GEN-LAST:event_adminActionPerformed
 
     /**
      * @param args the command line arguments

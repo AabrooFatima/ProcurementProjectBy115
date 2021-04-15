@@ -18,20 +18,20 @@ public class Panel3 extends javax.swing.JPanel {
         initComponents();
         at.setVisible(false);
         ms.setVisible(false);
-     il.setVisible(false);
-     isi.setVisible(false);
-     itf.setVisible(false);
-    add.setVisible(false);
-     sp3.setVisible(false);
-     tb1.setVisible(false); 
-    ql.setVisible(false);
-     qtf.setVisible(false);
-    reports.setVisible(false);
-    sp1.setVisible(false);
-     sp2.setVisible(false);
-    vl.setVisible(false);
-     vtf.setVisible(false);
-    // End of variables declaration              
+        il.setVisible(false);
+        isi.setVisible(false);
+        itf.setVisible(false);
+        add.setVisible(false);
+        sp3.setVisible(false);
+        tb1.setVisible(false);
+        ql.setVisible(false);
+        qtf.setVisible(false);
+        reports.setVisible(false);
+        sp1.setVisible(false);
+        sp2.setVisible(false);
+        vl.setVisible(false);
+        vtf.setVisible(false);
+        // End of variables declaration              
     }
 
     /**
@@ -53,11 +53,11 @@ public class Panel3 extends javax.swing.JPanel {
         add = new javax.swing.JButton();
         sp2 = new javax.swing.JScrollPane();
         reports = new javax.swing.JTable();
+        sp3 = new javax.swing.JScrollPane();
+        tb1 = new javax.swing.JTable();
         sp1 = new javax.swing.JScrollPane();
         isi = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        sp3 = new javax.swing.JScrollPane();
-        tb1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         icon = new javax.swing.JLabel();
         issitem = new javax.swing.JButton();
@@ -127,6 +127,25 @@ public class Panel3 extends javax.swing.JPanel {
         jPanel2.add(sp2);
         sp2.setBounds(10, 70, 630, 402);
 
+        tb1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tb1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        tb1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Item", "Quantity", "Vendor", "Action"
+            }
+        ));
+        tb1.setRowHeight(40);
+        tb1.setRowMargin(2);
+        tb1.setSelectionForeground(new java.awt.Color(223, 240, 254));
+        sp3.setViewportView(tb1);
+
+        jPanel2.add(sp3);
+        sp3.setBounds(10, 70, 630, 402);
+
         isi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -147,25 +166,6 @@ public class Panel3 extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\A R F T\\Documents\\GitHub\\GitHub\\JavaApplication19\\images\\Lawrencium.jpg")); // NOI18N
         jPanel2.add(jLabel3);
         jLabel3.setBounds(0, 0, 640, 660);
-
-        tb1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tb1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        tb1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Item", "Quantity", "Vendor", "Action"
-            }
-        ));
-        tb1.setRowHeight(40);
-        tb1.setRowMargin(2);
-        tb1.setSelectionForeground(new java.awt.Color(223, 240, 254));
-        sp3.setViewportView(tb1);
-
-        jPanel2.add(sp3);
-        sp3.setBounds(10, 70, 630, 402);
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 640, 660));
 
@@ -246,47 +246,46 @@ public class Panel3 extends javax.swing.JPanel {
     private void rpsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rpsActionPerformed
         // TODO add your handling code here:
         sp2.setVisible(true);
-         reports.setVisible(true);
-         
+        reports.setVisible(true);
+
         at.setVisible(false);
         ms.setVisible(false);
-     il.setVisible(false);
-     itf.setVisible(false);
-    add.setVisible(false);
-    ql.setVisible(false);
-     qtf.setVisible(false);
-    sp1.setVisible(false);
-    vl.setVisible(false);
-     vtf.setVisible(false);
-     isi.setVisible(false);
-     sp3.setVisible(false);
-     tb1.setVisible(false);
-     
-     
+        il.setVisible(false);
+        itf.setVisible(false);
+        add.setVisible(false);
+        ql.setVisible(false);
+        qtf.setVisible(false);
+        sp1.setVisible(false);
+        vl.setVisible(false);
+        vtf.setVisible(false);
+        isi.setVisible(false);
+        sp3.setVisible(false);
+        tb1.setVisible(false);
+
+
     }//GEN-LAST:event_rpsActionPerformed
 
     private void mngInvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mngInvActionPerformed
         // TODO add your handling code here:
         at.setVisible(false);
         ms.setVisible(false);
-     il.setVisible(false);
-     itf.setVisible(false);
-    add.setVisible(false);
-    
-   
-    ql.setVisible(false);
-     qtf.setVisible(false);
-    
-    sp1.setVisible(false);
-     sp2.setVisible(false);
-    vl.setVisible(false);
-     vtf.setVisible(false);
-     isi.setVisible(false);
-     sp3.setVisible(false);
-     tb1.setVisible(false);
-     
-      reports.setVisible(false);
-        
+        il.setVisible(false);
+        itf.setVisible(false);
+        add.setVisible(false);
+
+        ql.setVisible(false);
+        qtf.setVisible(false);
+
+        sp1.setVisible(false);
+        sp2.setVisible(false);
+        vl.setVisible(false);
+        vtf.setVisible(false);
+        isi.setVisible(false);
+        sp3.setVisible(false);
+        tb1.setVisible(false);
+
+        reports.setVisible(false);
+
         at.setVisible(true);
         ms.setVisible(true);
     }//GEN-LAST:event_mngInvActionPerformed
@@ -299,61 +298,60 @@ public class Panel3 extends javax.swing.JPanel {
         // TODO add your handling code here:
         sp1.setVisible(true);
         isi.setVisible(true);
-        
+
         sp3.setVisible(false);
-     tb1.setVisible(false);
+        tb1.setVisible(false);
         at.setVisible(false);
         ms.setVisible(false);
-     il.setVisible(false);
-     itf.setVisible(false);
-    add.setVisible(false);
-    ql.setVisible(false);
-     qtf.setVisible(false);
-    reports.setVisible(false);
-     sp2.setVisible(false);
-    vl.setVisible(false);
-     vtf.setVisible(false);
-     
-     
+        il.setVisible(false);
+        itf.setVisible(false);
+        add.setVisible(false);
+        ql.setVisible(false);
+        qtf.setVisible(false);
+        reports.setVisible(false);
+        sp2.setVisible(false);
+        vl.setVisible(false);
+        vtf.setVisible(false);
+
+
     }//GEN-LAST:event_issitemActionPerformed
 
     private void atActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atActionPerformed
         // TODO add your handling code here:
-         
+
         tb1.setVisible(false);
         sp3.setVisible(false);
-       
-       icon.setVisible(false);
-     sp1.setVisible(false);
-     sp2.setVisible(false);
-     isi.setVisible(false);
-      reports.setVisible(false);
-      ql.setVisible(true);
-     qtf.setVisible(true);
-     il.setVisible(true);
-     itf.setVisible(true);
-      vl.setVisible(true);
-     vtf.setVisible(true);
-     add.setVisible(true);
+
+        icon.setVisible(false);
+        sp1.setVisible(false);
+        sp2.setVisible(false);
+        isi.setVisible(false);
+        reports.setVisible(false);
+        ql.setVisible(true);
+        qtf.setVisible(true);
+        il.setVisible(true);
+        itf.setVisible(true);
+        vl.setVisible(true);
+        vtf.setVisible(true);
+        add.setVisible(true);
     }//GEN-LAST:event_atActionPerformed
 
     private void msActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msActionPerformed
         // TODO add your handling code here:
         sp3.setVisible(true);
-     tb1.setVisible(true);
-        
-       
-     il.setVisible(false);
-     itf.setVisible(false);
-    add.setVisible(false);
-    ql.setVisible(false);
-     qtf.setVisible(false);
-    sp1.setVisible(false);
-     sp2.setVisible(false);
-    vl.setVisible(false);
-     vtf.setVisible(false);
-     isi.setVisible(false);
-      reports.setVisible(false);
+//        tb1.setVisible(true);
+
+        il.setVisible(false);
+        itf.setVisible(false);
+        add.setVisible(false);
+        ql.setVisible(false);
+        qtf.setVisible(false);
+        sp1.setVisible(false);
+        sp2.setVisible(false);
+        vl.setVisible(false);
+        vtf.setVisible(false);
+        isi.setVisible(false);
+        reports.setVisible(false);
     }//GEN-LAST:event_msActionPerformed
 
 

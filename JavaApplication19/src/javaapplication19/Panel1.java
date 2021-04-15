@@ -5,6 +5,8 @@
  */
 package javaapplication19;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author A R F T
@@ -188,6 +190,11 @@ public class Panel1 extends javax.swing.JPanel {
         add.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
         add.setText("Add");
         add.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addActionPerformed(evt);
+            }
+        });
         jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 457, 128, -1));
 
         jTable1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -269,6 +276,8 @@ public class Panel1 extends javax.swing.JPanel {
         jScrollPane2.setVisible(false);
          jTable1.setVisible(true);
         jScrollPane1.setVisible(true);
+        viewTableData();
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -287,6 +296,48 @@ public class Panel1 extends javax.swing.JPanel {
         jScrollPane2.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        // TODO add your handling code here:
+        Employee obj= new Employee();
+        Admin a= new Admin();
+        /* head.setVisible(true);
+        head.setText("Add Employ");
+        cl.setVisible(true);
+        el.setVisible(true);
+        nl.setVisible(true);
+        txt1.setVisible(true);
+        txt2.setVisible(true);
+        txt3.setVisible(true);
+        add.setVisible(true);
+       jTable1.setVisible(false);
+        jScrollPane1.setVisible(false);
+        jTable2.setVisible(false);
+        jScrollPane2.setVisible(false);*/
+        
+        String n=txt1.getText();
+        String c=txt2.getText();
+        String e=txt3.getText();
+        if(obj.setName(n) && obj.setContact(c) && obj.setEmail(e))
+        {
+            obj.setId();
+            boolean f= a.addEmploy(obj);
+            if(f)
+            System.out.println("Success"); 
+        }
+        
+    }//GEN-LAST:event_addActionPerformed
+
+    public void viewTableData(){
+        model=(DefaultTableModel) jTable1.getModel();
+        Object[] rowData=new Object[5];
+        rowData[0]="1";
+        rowData[1]="22";
+        rowData[2]="33";
+        rowData[3]="144";
+        rowData[4]="166";
+        model.addRow(rowData);
+    }
+    DefaultTableModel model;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;

@@ -16,11 +16,28 @@ public class Forms extends javax.swing.JFrame {
     /**
      * Creates new form Forms
      */
-    public Forms() {
-        initComponents();
-        Panel3 p=new Panel3();
-        gotoPanel(p);
+    public Forms()
+    {
         
+    }
+    public Forms(String s) {
+        initComponents();
+        /*if(s.equals("Admin"))
+        {
+            Panel1 p= new Panel1();
+            gotoPanel(p);
+        }
+        else if(s.equals("Employ"))
+        {
+        Panel2 p=new Panel2();
+        gotoPanel(p);
+        }
+        else if(s.equals("Manager"))
+        {
+            
+        }*/
+        Panel3 p= new Panel3();
+            gotoPanel(p);
     }
      public  void gotoPanel(JPanel p)
      {
