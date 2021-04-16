@@ -9,11 +9,12 @@ import java.util.*;
  *
  * @author A R F T
  */
-public class Registered {
+public class Registered extends Person{
     static List<Employee> employees= new ArrayList();
     static List <Item> ReqItem = new ArrayList();
-    static List<Item> Approve = new ArrayList();
+    static List<Request> Approve = new ArrayList();
     static List <Issued_item> IssuedItem= new ArrayList();
     static List <Item> stock = new ArrayList();
     static List<Vendor> supply= new ArrayList();
+    static List<Request> request= new ArrayList();
 }

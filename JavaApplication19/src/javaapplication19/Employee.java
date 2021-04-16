@@ -7,25 +7,32 @@ package javaapplication19;
 import java.util.*;
 /**
  *
- * @author A R F T
+ * @author A F H
  */
 public class Employee extends Person {
     
-    static List<Item> requests= new ArrayList();
+    static List<Request> requests= new ArrayList();
     static List <Issued_item> issued= new ArrayList();
     private String ID;
     
-    public boolean addRequest(Item obj)
+    
+   
+    public boolean addRequest(Request obj)
     {
         boolean f= false;
         this.requests.add(obj);
-        Registered.ReqItem.add(obj);
+        Registered.request.add(obj);
         f=true;
         return f;
     }
     public boolean addIssue( Issued_item obj)
     {
         boolean f=false;
+        
+        /*for(int i=0;i<Registered.stock.size();i++)
+        {
+            if()
+        }*/
         this.issued.add(obj);
         Registered.IssuedItem.add(obj);
         f=true;
@@ -40,6 +47,10 @@ public class Employee extends Person {
         this.ID= s;
         return f;
     }
+    public void setID(String i)
+    {
+      this.ID=i;   
+    }
     public String getId()
     {
       
@@ -49,7 +60,7 @@ public class Employee extends Person {
     public boolean deleteRequest(String n, String v)
     {
         boolean flag=false;
-        Item obj=new Item();
+        Request obj=new Request();
         for(int i=0; i< requests.size();i++)
         {
             obj= requests.get(i);
@@ -65,13 +76,13 @@ public class Employee extends Person {
     public boolean editRequest(String n, int q)
     {
          boolean f= false;
-         Item match = new Item();
+         Request match = new Request();
          for (int i=0;i<requests.size();i++)
          {
              match =requests.get(i);
              if(match.getName().equals(n))
              {
-                 match.setQuantity(q);
+                 match.setQuant(q);
                  f=true;
                  break;
                  

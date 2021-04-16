@@ -50,4 +50,20 @@ public class Inventory {
        }
        return f;
    }
+   public int itemExist(String it)
+   {
+       int n=-1;
+       Item obj= new Item();
+       for(int i=0;i<Registered.stock.size();i++)
+       {
+           obj= Registered.stock.get(i);
+           if(obj.getName().equals(it))
+           {
+               n=i;
+               return n;
+           }
+           
+       }
+       return n;
+   }
 }

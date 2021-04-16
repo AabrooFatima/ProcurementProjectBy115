@@ -13,9 +13,22 @@ public class Item {
     
     private String Name;
     private int Quantity;
-    private Vendor Supplier;
+    private Vendor Supplier=new Vendor();
     private String category;
     
+    
+    public boolean setItem(String n,int q,String sN, String sC, String sE,String c,Item obj)
+    {
+        
+        this.setName(n);
+        this.setCategory(c);
+        this.setQuantity(q);
+        Supplier.setName(sN);
+        Supplier.setContact(sC);
+        Supplier.setEmail(sE);
+        //boolean f=this.setSupplier(sN, sE, sC,obj);
+        return true;
+    }
     
     public boolean setQuantity(int i)
     {
@@ -55,12 +68,13 @@ public class Item {
         }
         return f;
     }
-    public boolean setSupplier(String n, String e, String c, Item obj)
+    public boolean setSupplier(String n, String e, String c,Item obj)
     {
         boolean f=false;
         if(validName(n))
         {
-            this.Supplier.setName(n);
+            System.out.println(n);
+            Supplier.setName(n);
         }
         if(Supplier.validEmail(e))
         {
@@ -70,27 +84,17 @@ public class Item {
         {
             Supplier.setContact(c);
         }
+        
         Supplier.item.add(obj);
-        if(! Registered.supply.contains(Supplier))
-        {
-          Registered.supply.add(Supplier);
-        }
-        else
-        {
-           for(int i=0;i< Registered.supply.size();i++)
-           {
-               Vendor v= new Vendor();
-               if(v.equals(Supplier))
-               {
-                   v.item.add(obj);
-                   break;
-               }
-           }
-        }
         f=true;
+        if(f)
+        System.out.println("Item added");
         return f;
     }
-    
+    public String getSuppliername()
+    {
+        return this.Supplier.getName();
+    }
     
     public boolean validName(String name)
     {

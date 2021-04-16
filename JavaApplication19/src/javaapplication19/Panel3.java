@@ -5,6 +5,15 @@
  */
 package javaapplication19;
 
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author A R F T
@@ -16,21 +25,7 @@ public class Panel3 extends javax.swing.JPanel {
      */
     public Panel3() {
         initComponents();
-        at.setVisible(false);
-        ms.setVisible(false);
-        il.setVisible(false);
-        isi.setVisible(false);
-        itf.setVisible(false);
-        add.setVisible(false);
-        sp3.setVisible(false);
-        tb1.setVisible(false);
-        ql.setVisible(false);
-        qtf.setVisible(false);
-        reports.setVisible(false);
-        sp1.setVisible(false);
-        sp2.setVisible(false);
-        vl.setVisible(false);
-        vtf.setVisible(false);
+        hide();
         // End of variables declaration              
     }
 
@@ -44,12 +39,20 @@ public class Panel3 extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        il = new javax.swing.JLabel();
+        ct = new javax.swing.JLabel();
         ql = new javax.swing.JLabel();
         vl = new javax.swing.JLabel();
-        itf = new javax.swing.JTextField();
+        vl2 = new javax.swing.JLabel();
+        vl1 = new javax.swing.JLabel();
+        ctf = new javax.swing.JTextField();
+        itf1 = new javax.swing.JTextField();
         qtf = new javax.swing.JTextField();
         vtf = new javax.swing.JTextField();
+        vtf1 = new javax.swing.JTextField();
+        qtf1 = new javax.swing.JTextField();
+        ql1 = new javax.swing.JLabel();
+        il1 = new javax.swing.JLabel();
+        vtf2 = new javax.swing.JTextField();
         add = new javax.swing.JButton();
         sp2 = new javax.swing.JScrollPane();
         reports = new javax.swing.JTable();
@@ -72,11 +75,11 @@ public class Panel3 extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        il.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        il.setForeground(new java.awt.Color(255, 255, 255));
-        il.setText("Item:");
-        jPanel2.add(il);
-        il.setBounds(189, 220, 50, 22);
+        ct.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ct.setForeground(new java.awt.Color(255, 255, 255));
+        ct.setText("Category:");
+        jPanel2.add(ct);
+        ct.setBounds(160, 490, 80, 22);
 
         ql.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         ql.setForeground(new java.awt.Color(255, 255, 255));
@@ -86,29 +89,72 @@ public class Panel3 extends javax.swing.JPanel {
 
         vl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         vl.setForeground(new java.awt.Color(255, 255, 255));
-        vl.setText("Vendor:");
+        vl.setText("Vendor Email:");
         jPanel2.add(vl);
-        vl.setBounds(180, 330, 70, 22);
+        vl.setBounds(120, 440, 130, 22);
 
-        itf.addActionListener(new java.awt.event.ActionListener() {
+        vl2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        vl2.setForeground(new java.awt.Color(255, 255, 255));
+        vl2.setText("Vendor Contact:");
+        jPanel2.add(vl2);
+        vl2.setBounds(120, 390, 130, 22);
+
+        vl1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        vl1.setForeground(new java.awt.Color(255, 255, 255));
+        vl1.setText("Vendor:");
+        jPanel2.add(vl1);
+        vl1.setBounds(180, 330, 70, 22);
+
+        ctf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itfActionPerformed(evt);
+                ctfActionPerformed(evt);
             }
         });
-        jPanel2.add(itf);
-        itf.setBounds(260, 210, 160, 26);
+        jPanel2.add(ctf);
+        ctf.setBounds(260, 490, 160, 26);
+
+        itf1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itf1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(itf1);
+        itf1.setBounds(260, 210, 160, 26);
         jPanel2.add(qtf);
         qtf.setBounds(260, 270, 160, 26);
         jPanel2.add(vtf);
-        vtf.setBounds(260, 330, 160, 26);
+        vtf.setBounds(260, 440, 160, 26);
+        jPanel2.add(vtf1);
+        vtf1.setBounds(260, 330, 160, 26);
+        jPanel2.add(qtf1);
+        qtf1.setBounds(260, 490, 160, 26);
+
+        ql1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ql1.setForeground(new java.awt.Color(255, 255, 255));
+        ql1.setText("Quantity:");
+        jPanel2.add(ql1);
+        ql1.setBounds(160, 490, 80, 22);
+
+        il1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        il1.setForeground(new java.awt.Color(255, 255, 255));
+        il1.setText("Item:");
+        jPanel2.add(il1);
+        il1.setBounds(189, 220, 50, 22);
+        jPanel2.add(vtf2);
+        vtf2.setBounds(260, 390, 160, 26);
 
         add.setBackground(new java.awt.Color(26, 37, 84));
         add.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         add.setForeground(new java.awt.Color(198, 203, 209));
         add.setText("ADD");
         add.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addActionPerformed(evt);
+            }
+        });
         jPanel2.add(add);
-        add.setBounds(273, 409, 110, 40);
+        add.setBounds(280, 530, 110, 40);
 
         reports.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         reports.setModel(new javax.swing.table.DefaultTableModel(
@@ -122,6 +168,11 @@ public class Panel3 extends javax.swing.JPanel {
         reports.setRowHeight(40);
         reports.setRowMargin(2);
         reports.setSelectionForeground(new java.awt.Color(223, 240, 254));
+        reports.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reportsMouseClicked(evt);
+            }
+        });
         sp2.setViewportView(reports);
 
         jPanel2.add(sp2);
@@ -141,6 +192,11 @@ public class Panel3 extends javax.swing.JPanel {
         tb1.setRowHeight(40);
         tb1.setRowMargin(2);
         tb1.setSelectionForeground(new java.awt.Color(223, 240, 254));
+        tb1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb1MouseClicked(evt);
+            }
+        });
         sp3.setViewportView(tb1);
 
         jPanel2.add(sp3);
@@ -245,73 +301,29 @@ public class Panel3 extends javax.swing.JPanel {
 
     private void rpsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rpsActionPerformed
         // TODO add your handling code here:
+        hide();
         sp2.setVisible(true);
         reports.setVisible(true);
-
-        at.setVisible(false);
-        ms.setVisible(false);
-        il.setVisible(false);
-        itf.setVisible(false);
-        add.setVisible(false);
-        ql.setVisible(false);
-        qtf.setVisible(false);
-        sp1.setVisible(false);
-        vl.setVisible(false);
-        vtf.setVisible(false);
-        isi.setVisible(false);
-        sp3.setVisible(false);
-        tb1.setVisible(false);
-
 
     }//GEN-LAST:event_rpsActionPerformed
 
     private void mngInvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mngInvActionPerformed
         // TODO add your handling code here:
-        at.setVisible(false);
-        ms.setVisible(false);
-        il.setVisible(false);
-        itf.setVisible(false);
-        add.setVisible(false);
-
-        ql.setVisible(false);
-        qtf.setVisible(false);
-
-        sp1.setVisible(false);
-        sp2.setVisible(false);
-        vl.setVisible(false);
-        vtf.setVisible(false);
-        isi.setVisible(false);
-        sp3.setVisible(false);
-        tb1.setVisible(false);
-
-        reports.setVisible(false);
+        hide();
 
         at.setVisible(true);
         ms.setVisible(true);
     }//GEN-LAST:event_mngInvActionPerformed
 
-    private void itfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itfActionPerformed
+    private void ctfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_itfActionPerformed
+    }//GEN-LAST:event_ctfActionPerformed
 
     private void issitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issitemActionPerformed
         // TODO add your handling code here:
+        hide();
         sp1.setVisible(true);
         isi.setVisible(true);
-
-        sp3.setVisible(false);
-        tb1.setVisible(false);
-        at.setVisible(false);
-        ms.setVisible(false);
-        il.setVisible(false);
-        itf.setVisible(false);
-        add.setVisible(false);
-        ql.setVisible(false);
-        qtf.setVisible(false);
-        reports.setVisible(false);
-        sp2.setVisible(false);
-        vl.setVisible(false);
-        vtf.setVisible(false);
 
 
     }//GEN-LAST:event_issitemActionPerformed
@@ -319,50 +331,150 @@ public class Panel3 extends javax.swing.JPanel {
     private void atActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atActionPerformed
         // TODO add your handling code here:
 
-        tb1.setVisible(false);
-        sp3.setVisible(false);
+        hide();
 
-        icon.setVisible(false);
-        sp1.setVisible(false);
-        sp2.setVisible(false);
-        isi.setVisible(false);
-        reports.setVisible(false);
         ql.setVisible(true);
         qtf.setVisible(true);
-        il.setVisible(true);
-        itf.setVisible(true);
+        ct.setVisible(true);
+        ctf.setVisible(true);
         vl.setVisible(true);
         vtf.setVisible(true);
+        vl1.setVisible(true);
+        vtf1.setVisible(true);
+        vl2.setVisible(true);
+        vtf2.setVisible(true);
+        itf1.setVisible(true);
+        il1.setVisible(true);
         add.setVisible(true);
     }//GEN-LAST:event_atActionPerformed
 
     private void msActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msActionPerformed
         // TODO add your handling code here:
+        hide();
         sp3.setVisible(true);
-//        tb1.setVisible(true);
+        tb1.setVisible(true);
+        qtf1.setVisible(true);
+        ql1.setVisible(true);
 
-        il.setVisible(false);
-        itf.setVisible(false);
+        model = (DefaultTableModel) tb1.getModel();
+        model.setRowCount(0);
+        Object[] rowData = new Object[4];
+        System.out.println(Registered.stock.size());
+        for (int i = 0; i < Registered.stock.size(); i++) {
+            rowData[0] = Registered.stock.get(i).getName();
+            rowData[1] = Registered.stock.get(i).getQuantity();
+            rowData[2] = Registered.stock.get(i).getSuppliername();
+            rowData[3] = "YDRGZM";
+            model.addRow(rowData);
+        }
+        tb1.getSelectedRow();
+        /* StockTableModel t = new StockTableModel(Registered.stock);
+        
+        tb1.setModel(t);
+        
+        Action increase = new AbstractAction() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JTable table = (JTable) e.getSource();
+                int row = Integer.valueOf(e.getActionCommand());
+                StockTableModel model = (StockTableModel) table.getModel();
+                model.editRow(row);                
+            }
+        };
+        ButtonColumn inc = new ButtonColumn(tb1, increase, 4);
+        
+        Action deleteAction = new AbstractAction() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JTable table = (JTable) e.getSource();
+                int row = Integer.valueOf(e.getActionCommand());
+                StockTableModel model = (StockTableModel) table.getModel();
+                model.deleteRow(row);                
+            }
+        };
+        ButtonColumn deleteButton = new ButtonColumn(tb1, deleteAction, 5);*/
+    }//GEN-LAST:event_msActionPerformed
+
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        // TODO add your handling code here:
+        Item i = new Item();
+        String c = ctf.getText();
+        int q = Integer.parseInt(qtf.getText());
+        String ve = vtf.getText();
+        String vn = vtf1.getText();
+        String vc = vtf2.getText();
+        String t = itf1.getText();
+        i.setItem(t, q, vn, vc, ve, c, i);
+        Registered.stock.add(i);
+    }//GEN-LAST:event_addActionPerformed
+
+    private void itf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itf1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itf1ActionPerformed
+
+    private void reportsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportsMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_reportsMouseClicked
+
+    private void tb1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb1MouseClicked
+        // TODO add your handling code here:
+        int r = tb1.getSelectedRow();
+        if (r > -1) {
+            //System.out.println("" + Registered.stock.get(r).getQuantity());
+            qtf1.setText("" + Registered.stock.get(r).getQuantity());
+        } else {
+            qtf1.setText("Not found");
+        }
+    }//GEN-LAST:event_tb1MouseClicked
+
+    public void addRowData() {
+        DefaultTableModel model = (DefaultTableModel) reports.getModel();
+        Object rowData[] = new Object[3];
+        for (int i = 0; i < Registered.employees.size(); i++) {
+            rowData[0] = Registered.employees.get(i).getName();
+        }
+    }
+
+    public void hide() {
+        at.setVisible(false);
+        ms.setVisible(false);
+        ct.setVisible(false);
+        isi.setVisible(false);
+        ctf.setVisible(false);
         add.setVisible(false);
+        sp3.setVisible(false);
+        tb1.setVisible(false);
         ql.setVisible(false);
         qtf.setVisible(false);
+        reports.setVisible(false);
         sp1.setVisible(false);
         sp2.setVisible(false);
         vl.setVisible(false);
         vtf.setVisible(false);
-        isi.setVisible(false);
-        reports.setVisible(false);
-    }//GEN-LAST:event_msActionPerformed
-
+        vl1.setVisible(false);
+        vl2.setVisible(false);
+        vtf1.setVisible(false);
+        vtf2.setVisible(false);
+        itf1.setVisible(false);
+        il1.setVisible(false);
+        qtf1.setVisible(false);
+        ql1.setVisible(false);
+    }
+    DefaultTableModel model;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
     private javax.swing.JButton at;
+    private javax.swing.JLabel ct;
+    private javax.swing.JTextField ctf;
     private javax.swing.JLabel icon;
-    private javax.swing.JLabel il;
+    private javax.swing.JLabel il1;
     private javax.swing.JTable isi;
     private javax.swing.JButton issitem;
-    private javax.swing.JTextField itf;
+    private javax.swing.JTextField itf1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
@@ -370,7 +482,9 @@ public class Panel3 extends javax.swing.JPanel {
     private javax.swing.JButton mngInv;
     private javax.swing.JButton ms;
     private javax.swing.JLabel ql;
+    private javax.swing.JLabel ql1;
     private javax.swing.JTextField qtf;
+    private javax.swing.JTextField qtf1;
     private javax.swing.JTable reports;
     private javax.swing.JComboBox<String> rps;
     private javax.swing.JScrollPane sp1;
@@ -378,6 +492,10 @@ public class Panel3 extends javax.swing.JPanel {
     private javax.swing.JScrollPane sp3;
     private javax.swing.JTable tb1;
     private javax.swing.JLabel vl;
+    private javax.swing.JLabel vl1;
+    private javax.swing.JLabel vl2;
     private javax.swing.JTextField vtf;
+    private javax.swing.JTextField vtf1;
+    private javax.swing.JTextField vtf2;
     // End of variables declaration//GEN-END:variables
 }

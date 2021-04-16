@@ -12,4 +12,5 @@ package javaapplication19;
 public class Issued_item extends Item {
     
     public String status;
+    
 }

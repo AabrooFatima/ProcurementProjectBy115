@@ -36,8 +36,21 @@ public class Forms extends javax.swing.JFrame {
         {
             
         }*/
-        Panel3 p= new Panel3();
+        Panel1 p= new Panel1();
             gotoPanel(p);
+    }
+    
+    private static Forms instance;
+    public static Forms getInstance(){
+        if(instance == null)
+        {
+            instance= new Forms();
+        }
+        return instance;
+    }
+    
+    public void updateGrid(){
+        
     }
      public  void gotoPanel(JPanel p)
      {

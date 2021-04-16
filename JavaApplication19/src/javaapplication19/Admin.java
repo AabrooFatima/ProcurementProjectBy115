@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author A R F T
  */
-public class Admin {
+public class Admin extends Employee{
     
     
     
@@ -27,8 +27,10 @@ public class Admin {
     {
         boolean f=false;
         Employee obj=new Employee();
+        System.out.println(id);
         for(int i=0; i< Registered.employees.size();i++)
         {
+            obj= Registered.employees.get(i);
             if(obj.getId().equals(id))
             {
                 Registered.employees.remove(i);
@@ -40,23 +42,22 @@ public class Admin {
     }
     public boolean editEmploy( String id, Employee obj)
     {
-        boolean f=true;
+        boolean f= false;
         Employee e= new Employee();
         for(int i=0;i<Registered.employees.size();i++)
         {
             e= Registered.employees.get(i);
             if(e.getId().equals(id))
             {
-                e.setContact(obj.getContact());
-                e.setEmail(obj.getEmail());
-                e.setName(obj.getName());
+                System.out.println("am here");
+                Registered.employees.set(i, obj);
                 f=true;
                 break;
             }
         }
         return f;
     }
-    public boolean approveItem(Item obj)
+    public boolean approveItem(Request obj)
     {
         boolean flag=false;
          Registered.Approve.add(obj);

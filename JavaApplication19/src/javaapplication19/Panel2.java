@@ -11,11 +11,16 @@ package javaapplication19;
  */
 public class Panel2 extends javax.swing.JPanel {
 
+    String item;
+    String action;
     /**
      * Creates new form Panel2
      */
-    public Panel2() {
+    public Panel2(String c, String Action) {
         initComponents();
+        this.item=c;
+        this.action=Action;
+        
         jTable1.setVisible(false);
         jScrollPane1.setVisible(false);
         jTable2.setVisible(false);
@@ -49,10 +54,12 @@ public class Panel2 extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         it = new javax.swing.JLabel();
         itm = new javax.swing.JTextField();
+        itm1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        Quan = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
@@ -116,26 +123,38 @@ public class Panel2 extends javax.swing.JPanel {
         wnt.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
         wnt.setForeground(new java.awt.Color(66, 169, 157));
         wnt.setText("Want something not in list ?");
-        jPanel2.add(wnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, -1, -1));
+        jPanel2.add(wnt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, -1, -1));
 
         req.setBackground(new java.awt.Color(66, 169, 157));
         req.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
         req.setText("Request");
         req.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        req.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reqActionPerformed(evt);
+            }
+        });
         jPanel2.add(req, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 600, 90, -1));
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         it.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
         it.setForeground(new java.awt.Color(66, 169, 157));
         it.setText("Item:");
-        jPanel2.add(it, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, -1, -1));
+        jPanel2.add(it, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, -1, -1));
 
         itm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmActionPerformed(evt);
             }
         });
-        jPanel2.add(itm, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, 190, -1));
+        jPanel2.add(itm, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 530, 70, -1));
+
+        itm1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itm1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(itm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 190, -1));
 
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -170,6 +189,11 @@ public class Panel2 extends javax.swing.JPanel {
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 650, -1));
 
+        Quan.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
+        Quan.setForeground(new java.awt.Color(66, 169, 157));
+        Quan.setText("Quantity:");
+        jPanel2.add(Quan, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, -1, -1));
+
         add(jPanel2);
         jPanel2.setBounds(250, 0, 650, 660);
     }// </editor-fold>//GEN-END:initComponents
@@ -202,10 +226,29 @@ public class Panel2 extends javax.swing.JPanel {
         wnt.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void reqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reqActionPerformed
+        // TODO add your handling code here:
+        Employee e= new Employee();
+        Request i= new Request();
+        
+        String item =itm1.getText();
+        int q= Integer.parseInt(itm.getText());
+       i.setName(item);
+       i.setQuant(q);
+       e.addRequest(i);
+        
+    }//GEN-LAST:event_reqActionPerformed
+
+    private void itm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itm1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itm1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Quan;
     private javax.swing.JLabel it;
     private javax.swing.JTextField itm;
+    private javax.swing.JTextField itm1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
