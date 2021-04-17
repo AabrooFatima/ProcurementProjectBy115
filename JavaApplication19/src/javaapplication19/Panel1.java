@@ -453,7 +453,12 @@ public class Panel1 extends javax.swing.JPanel {
     }//GEN-LAST:event_backActionPerformed
 
     private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
-     try {
+     
+        Registered.saveApproved();
+        Registered.saveEmploy();
+        Registered.saveIssued();
+        Registered.saveStock();
+        try {
          // TODO add your handling code here:
          finalize();
      } catch (Throwable ex) {

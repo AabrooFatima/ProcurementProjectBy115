@@ -555,11 +555,11 @@ public class Panel3 extends javax.swing.JPanel {
 
     private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
         // TODO add your handling code here:
-        Registered r = new Registered();
-        r.saveApproved();
-        r.saveStock();
-        r.saveEmploy();
-        r.saveIssued();
+   
+        Registered.saveApproved();
+        Registered.saveStock();
+        Registered.saveEmploy();
+        Registered.saveIssued();
             
             this.setVisible(false);
             JOptionPane.showMessageDialog(null,"Thank you for using program");

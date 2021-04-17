@@ -27,7 +27,7 @@ public class Registered extends Person{
     static List<Vendor> supply= new ArrayList();
     static List<Request> request= new ArrayList();
     
-     protected void finalize ()throws Throwable
+     protected  void finalize ()throws Throwable
     {
       boolean flag;
       try
@@ -45,14 +45,14 @@ public class Registered extends Person{
       //return false;
     }
     }
-     public void saveEmploy()
+     public static void saveEmploy()
      {
          try
          {
          PrintWriter pw = new PrintWriter(new File("C:\\Users\\A R F T\\Documents\\GitHub\\GitHub\\JavaApplication19\\Employ.csv"));
           StringBuilder sb =new StringBuilder();
          
-          for(int i=0;i<this.employees.size();i++)
+          for(int i=0;i<employees.size();i++)
           {
               sb.append(employees.get(i).getId()+",");
               sb.append(employees.get(i).getName()+",");
@@ -77,7 +77,7 @@ public class Registered extends Person{
          
         }
      
-     public void loadEmploy()
+     public static void loadEmploy()
      {
          String fileName= "Employ.csv";
          File file= new File(fileName);
@@ -110,14 +110,14 @@ public class Registered extends Person{
         }
      }
      
-     public void saveIssued()
+     public static void saveIssued()
      {
       try
          {
          PrintWriter pw = new PrintWriter(new File("C:\\Users\\A R F T\\Documents\\GitHub\\GitHub\\JavaApplication19\\Issued.csv"));
           StringBuilder sb =new StringBuilder();
          
-          for(int i=0;i<this.IssuedItem.size();i++)
+          for(int i=0;i<IssuedItem.size();i++)
           {
               sb.append(IssuedItem.get(i).id+",");
               sb.append(IssuedItem.get(i).getName()+",");
@@ -139,7 +139,7 @@ public class Registered extends Person{
          
         }
         
-     public void loadIssued()
+     public static void loadIssued()
      {
          String fileName= "Issued.csv";
          File file= new File(fileName);
@@ -171,14 +171,14 @@ public class Registered extends Person{
             Logger.getLogger(Registered.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
-     public void saveApproved()
+     public static void saveApproved()
      {
       try
          {
          PrintWriter pw = new PrintWriter(new File("C:\\Users\\A R F T\\Documents\\GitHub\\GitHub\\JavaApplication19\\Approve.csv"));
           StringBuilder sb =new StringBuilder();
          
-          for(int i=0;i<this.Approve.size();i++)
+          for(int i=0;i<Approve.size();i++)
           {
               sb.append(Approve.get(i).getName()+",");
               sb.append(Approve.get(i).getQuant());
@@ -195,7 +195,7 @@ public class Registered extends Person{
          }
          
         }
-     public void loadApprove()
+     public static void loadApprove()
      {
          String fileName= "Approve.csv";
          File file= new File(fileName);
@@ -220,14 +220,14 @@ public class Registered extends Person{
             Logger.getLogger(Registered.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
-      public void saveStock()
+      public static void saveStock()
      {
       try
          {
          PrintWriter pw = new PrintWriter(new File("C:\\Users\\A R F T\\Documents\\GitHub\\GitHub\\JavaApplication19\\Stock.csv"));
           StringBuilder sb =new StringBuilder();
          
-          for(int i=0;i<this.stock.size();i++)
+          for(int i=0;i<stock.size();i++)
           {
              
               sb.append(stock.get(i).getName()+",");
@@ -249,7 +249,7 @@ public class Registered extends Person{
          }
          
         }
-      public void loadStock()
+      public static void loadStock()
      {
          String fileName= "Stock.csv";
          File file= new File(fileName);
