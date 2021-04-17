@@ -173,6 +173,7 @@ public Issued_item s= new Issued_item();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String j=itf.getText();
+        int n= Integer.parseInt(qntf.getText());
         Inventory st= new Inventory();
         int e=st.itemExist(j);
          int k= Integer.parseInt(qntf.getText());
@@ -184,6 +185,7 @@ public Issued_item s= new Issued_item();
              s.id=obj.getId();
              f=obj.addIssue(s);
             f= generateReceipt();
+            Registered.stock.get(e).setQuantity(Registered.stock.get(e).getQuantity()-n);
             if(f)
             {
                 JOptionPane.showMessageDialog(null,"Success");

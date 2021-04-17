@@ -62,6 +62,8 @@ public class Panel3 extends javax.swing.JPanel {
         add = new javax.swing.JButton();
         sp2 = new javax.swing.JScrollPane();
         reports = new javax.swing.JTable();
+        alarm = new javax.swing.JLabel();
+        edit = new javax.swing.JButton();
         sp3 = new javax.swing.JScrollPane();
         tb1 = new javax.swing.JTable();
         sp1 = new javax.swing.JScrollPane();
@@ -113,6 +115,7 @@ public class Panel3 extends javax.swing.JPanel {
         jPanel2.add(vl1);
         vl1.setBounds(180, 330, 70, 22);
 
+        ctf.setToolTipText("Item category");
         ctf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ctfActionPerformed(evt);
@@ -121,6 +124,7 @@ public class Panel3 extends javax.swing.JPanel {
         jPanel2.add(ctf);
         ctf.setBounds(260, 490, 160, 26);
 
+        itf1.setToolTipText("Item Name");
         itf1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itf1ActionPerformed(evt);
@@ -128,10 +132,16 @@ public class Panel3 extends javax.swing.JPanel {
         });
         jPanel2.add(itf1);
         itf1.setBounds(260, 210, 160, 26);
+
+        qtf.setToolTipText("Quantity i.e numbers");
         jPanel2.add(qtf);
         qtf.setBounds(260, 270, 160, 26);
+
+        vtf.setToolTipText("Supplier Email");
         jPanel2.add(vtf);
         vtf.setBounds(260, 440, 160, 26);
+
+        vtf1.setToolTipText("Supplier Name");
         jPanel2.add(vtf1);
         vtf1.setBounds(260, 330, 160, 26);
         jPanel2.add(qtf1);
@@ -141,20 +151,22 @@ public class Panel3 extends javax.swing.JPanel {
         ql1.setForeground(new java.awt.Color(255, 255, 255));
         ql1.setText("Quantity:");
         jPanel2.add(ql1);
-        ql1.setBounds(160, 490, 80, 22);
+        ql1.setBounds(80, 490, 160, 22);
 
         il1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         il1.setForeground(new java.awt.Color(255, 255, 255));
         il1.setText("Item:");
         jPanel2.add(il1);
         il1.setBounds(189, 220, 50, 22);
+
+        vtf2.setToolTipText("Supplier Contact");
         jPanel2.add(vtf2);
         vtf2.setBounds(260, 390, 160, 26);
 
         add.setBackground(new java.awt.Color(26, 37, 84));
         add.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         add.setForeground(new java.awt.Color(198, 203, 209));
-        add.setText("ADD");
+        add.setText("Add");
         add.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,12 +198,34 @@ public class Panel3 extends javax.swing.JPanel {
         jPanel2.add(sp2);
         sp2.setBounds(10, 70, 630, 402);
 
+        alarm.setText("jLabel2");
+        jPanel2.add(alarm);
+        alarm.setBounds(260, 240, 150, 20);
+
+        edit.setBackground(new java.awt.Color(26, 37, 84));
+        edit.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        edit.setForeground(new java.awt.Color(198, 203, 209));
+        edit.setText("Edit");
+        edit.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editActionPerformed(evt);
+            }
+        });
+        jPanel2.add(edit);
+        edit.setBounds(290, 550, 110, 40);
+
+        sp3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sp3MouseClicked(evt);
+            }
+        });
+
         tb1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tb1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         tb1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Item", "Quantity", "Vendor", "Action"
@@ -395,7 +429,7 @@ public class Panel3 extends javax.swing.JPanel {
         hide();
         sp1.setVisible(true);
         isi.setVisible(true);
-
+        
         model = (DefaultTableModel) isi.getModel();
         model.setRowCount(0);
         Object[] rowData = new Object[3];
@@ -429,16 +463,21 @@ public class Panel3 extends javax.swing.JPanel {
         itf1.setVisible(true);
         il1.setVisible(true);
         add.setVisible(true);
+        ms.setVisible(true);
+        at.setVisible(true);
     }//GEN-LAST:event_atActionPerformed
 
     private void msActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msActionPerformed
         // TODO add your handling code here:
         hide();
+        edit.setVisible(true);
         sp3.setVisible(true);
         tb1.setVisible(true);
         qtf1.setVisible(true);
+        ql1.setText("Enter New Quantity:");
         ql1.setVisible(true);
-
+        ms.setVisible(true);
+        at.setVisible(true);
         model = (DefaultTableModel) tb1.getModel();
         model.setRowCount(0);
         Object[] rowData = new Object[4];
@@ -494,7 +533,7 @@ public class Panel3 extends javax.swing.JPanel {
         {
             this.index=n;
             id= Registered.employees.get(index).getId();
-            Table2 t= new Table2();
+            Table2 t= new Table2(id,index);
             t.setVisible(true);
         }
     }//GEN-LAST:event_isiMouseClicked
@@ -517,6 +556,18 @@ public class Panel3 extends javax.swing.JPanel {
             }
             this.setVisible(false); JOptionPane.showMessageDialog(null,"Thank you for using program");
     }//GEN-LAST:event_closeActionPerformed
+
+    private void sp3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sp3MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_sp3MouseClicked
+
+    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
+        // TODO add your handling code here:
+            int q = Integer.parseInt(qtf1.getText());
+            Registered.stock.get(index).setQuantity(q);
+            JOptionPane.showMessageDialog(null,"Successful");
+    }//GEN-LAST:event_editActionPerformed
 public void viewIssuedItem()
 {
      model = (DefaultTableModel) reports.getModel();
@@ -582,6 +633,8 @@ public void viewOutOfStockItem()
         }
 }
     public void hide() {
+        edit.setVisible(false);
+        add.setVisible(false);
         at.setVisible(false);
         ms.setVisible(false);
         ct.setVisible(false);
@@ -605,17 +658,21 @@ public void viewOutOfStockItem()
         il1.setVisible(false);
         qtf1.setVisible(false);
         ql1.setVisible(false);
+        alarm.setVisible(false);
+                
     }
     DefaultTableModel model;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
+    private javax.swing.JLabel alarm;
     private javax.swing.JButton at;
     private javax.swing.JButton back;
     private javax.swing.JButton close;
     private javax.swing.JLabel ct;
     private javax.swing.JTextField ctf;
+    private javax.swing.JButton edit;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel il1;
     private javax.swing.JTable isi;

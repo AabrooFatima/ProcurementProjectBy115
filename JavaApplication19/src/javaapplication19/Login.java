@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
 String status;
 static String emp;
+int f=-1;
     /**
      * Creates new form Login
      */
@@ -289,9 +290,17 @@ static String emp;
                   }
                   else
                   {
-                      if(Registered.employees.contains(p) && log.equals("emp115"))
+                      for(int i=0;i<Registered.employees.size();i++)
                       {
-                          emp=p;
+                          if(Registered.employees.get(i).getId().equals(log))
+                          {
+                              f=i;
+                              break;
+                          }
+                      }
+                      if( f>=0 && p.equals("emp115"))
+                      {
+                          emp=log;
                           Forms f=new Forms(status);
                           f.setVisible(true);
                          this.setVisible(false);

@@ -243,9 +243,10 @@ public class Panel1 extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Emp ID", "Name"
+                "Emp ID", "Name", "Action"
             }
         ));
+        jTable2.setToolTipText("Select a row to view Employ Requests");
         jTable2.setRowHeight(40);
         jTable2.setSelectionForeground(new java.awt.Color(223, 240, 254));
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -358,6 +359,16 @@ public class Panel1 extends javax.swing.JPanel {
         
          jTable2.setVisible(true);
         jScrollPane2.setVisible(true);
+        model= (DefaultTableModel)jTable2.getModel();
+        Object[] rowData = new Object[3];
+        //System.out.println(Registered.employees.size());
+        for (int i = 0; i < Registered.employees.size(); i++) {
+            rowData[0] = Registered.employees.get(i).getId();
+            rowData[1] = Registered.employees.get(i).getName();
+            rowData[2] = "Select";
+            
+            model.addRow(rowData);
+        }
         get.setVisible(true);
         getid.setVisible(true);
         view.setVisible(true);
@@ -467,7 +478,7 @@ public void hide()
     get.setVisible(false);
     getid.setVisible(false);
     add.setVisible(false);
-        head.setVisible(false);
+        
         cl.setVisible(false);
         el.setVisible(false);
         nl.setVisible(false);
