@@ -1,0 +1,8 @@
+Name :Fatima
+ID :EMP1
+Contact:03546785915
+Email :a@gmail.com
+Issued item :Lapi
+Quantity :1
+Category :Returnable
+Time ;2021-04-17 20:56:25.239
