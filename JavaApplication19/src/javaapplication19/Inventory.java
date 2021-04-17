@@ -15,6 +15,7 @@ public class Inventory {
    {
        boolean f=false;
        Registered.stock.add(obj);
+       Registered.supply.add(obj.getSupplier());
        f=true;
        return f;
    }

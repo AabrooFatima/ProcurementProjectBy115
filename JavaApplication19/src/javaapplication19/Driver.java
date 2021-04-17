@@ -10,10 +10,16 @@ package javaapplication19;
  * @author A F H
  */
 public class Driver {
+     static Login l= new Login();
+    public static void hidden()
+    {
+       
+        l.setVisible(false);
+    }
     
     public static void main(String [] args)
     {
-     Forms l= new Forms("a");
-     l.setVisible(true);
+     
+      l.setVisible(true);
     }
 }

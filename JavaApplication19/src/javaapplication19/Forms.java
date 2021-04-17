@@ -22,7 +22,7 @@ public class Forms extends javax.swing.JFrame {
     }
     public Forms(String s) {
         initComponents();
-        /*if(s.equals("Admin"))
+        if(s.equals("Admin"))
         {
             Panel1 p= new Panel1();
             gotoPanel(p);
@@ -34,10 +34,10 @@ public class Forms extends javax.swing.JFrame {
         }
         else if(s.equals("Manager"))
         {
-            
-        }*/
-        Panel1 p= new Panel1();
+            Panel3 p= new Panel3();
             gotoPanel(p);
+        }
+        
     }
     
     private static Forms instance;

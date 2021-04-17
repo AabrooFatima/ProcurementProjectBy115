@@ -9,8 +9,11 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +23,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Panel3 extends javax.swing.JPanel {
 
+    public Item obj = new Item();
+    public int index;
+    public String id;
     /**
      * Creates new form Panel3
      */
@@ -67,6 +73,8 @@ public class Panel3 extends javax.swing.JPanel {
         mngInv = new javax.swing.JButton();
         at = new javax.swing.JButton();
         ms = new javax.swing.JButton();
+        close = new javax.swing.JButton();
+        back = new javax.swing.JButton();
         rps = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
@@ -154,7 +162,7 @@ public class Panel3 extends javax.swing.JPanel {
             }
         });
         jPanel2.add(add);
-        add.setBounds(280, 530, 110, 40);
+        add.setBounds(290, 550, 110, 40);
 
         reports.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         reports.setModel(new javax.swing.table.DefaultTableModel(
@@ -204,16 +212,29 @@ public class Panel3 extends javax.swing.JPanel {
 
         isi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Emp ID", "Name", "Request", "Quantity", "Action"
+                "Emp ID", "Name", "Contact"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         isi.setRowHeight(45);
+        isi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                isiMouseClicked(evt);
+            }
+        });
         sp1.setViewportView(isi);
 
         jPanel2.add(sp1);
@@ -279,6 +300,32 @@ public class Panel3 extends javax.swing.JPanel {
         jPanel1.add(ms);
         ms.setBounds(0, 440, 260, 31);
 
+        close.setBackground(new java.awt.Color(26, 37, 84));
+        close.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        close.setForeground(new java.awt.Color(198, 203, 209));
+        close.setText("Close");
+        close.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(close);
+        close.setBounds(70, 560, 110, 40);
+
+        back.setBackground(new java.awt.Color(26, 37, 84));
+        back.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        back.setForeground(new java.awt.Color(198, 203, 209));
+        back.setText("Back");
+        back.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+        jPanel1.add(back);
+        back.setBounds(70, 500, 110, 40);
+
         rps.setBackground(new java.awt.Color(26, 37, 84));
         rps.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         rps.setForeground(new java.awt.Color(171, 175, 245));
@@ -302,8 +349,32 @@ public class Panel3 extends javax.swing.JPanel {
     private void rpsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rpsActionPerformed
         // TODO add your handling code here:
         hide();
-        sp2.setVisible(true);
-        reports.setVisible(true);
+        String d= rps.getSelectedItem().toString();
+        if(d.equals("View Issued Items"))
+        {
+            viewIssuedItem();
+            sp2.setVisible(true);
+         reports.setVisible(true);
+        }
+        else if(d.equals("View Returnes items"))
+        {
+            viewReturnItem();
+            sp2.setVisible(true);
+         reports.setVisible(true);
+        }
+        else if(d.equals("View Not Returned"))
+        {
+            viewNotReturnItem();
+            sp2.setVisible(true);
+         reports.setVisible(true);
+        }
+        else
+        {
+            viewOutOfStockItem();
+            sp2.setVisible(true);
+           reports.setVisible(true);   
+        }
+        
 
     }//GEN-LAST:event_rpsActionPerformed
 
@@ -325,6 +396,18 @@ public class Panel3 extends javax.swing.JPanel {
         sp1.setVisible(true);
         isi.setVisible(true);
 
+        model = (DefaultTableModel) isi.getModel();
+        model.setRowCount(0);
+        Object[] rowData = new Object[3];
+        //System.out.println(Registered.employees.size());
+        for (int i = 0; i < Registered.employees.size(); i++) {
+            rowData[0] = Registered.employees.get(i).getId();
+            rowData[1] = Registered.employees.get(i).getName();
+            rowData[2] = Registered.employees.get(i).getContact();
+             
+            model.addRow(rowData);
+        }
+        
 
     }//GEN-LAST:event_issitemActionPerformed
 
@@ -359,42 +442,16 @@ public class Panel3 extends javax.swing.JPanel {
         model = (DefaultTableModel) tb1.getModel();
         model.setRowCount(0);
         Object[] rowData = new Object[4];
-        System.out.println(Registered.stock.size());
+        //System.out.println(Registered.stock.size());
         for (int i = 0; i < Registered.stock.size(); i++) {
             rowData[0] = Registered.stock.get(i).getName();
             rowData[1] = Registered.stock.get(i).getQuantity();
             rowData[2] = Registered.stock.get(i).getSuppliername();
-            rowData[3] = "YDRGZM";
+            rowData[3] = "Select";
             model.addRow(rowData);
         }
         tb1.getSelectedRow();
-        /* StockTableModel t = new StockTableModel(Registered.stock);
         
-        tb1.setModel(t);
-        
-        Action increase = new AbstractAction() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JTable table = (JTable) e.getSource();
-                int row = Integer.valueOf(e.getActionCommand());
-                StockTableModel model = (StockTableModel) table.getModel();
-                model.editRow(row);                
-            }
-        };
-        ButtonColumn inc = new ButtonColumn(tb1, increase, 4);
-        
-        Action deleteAction = new AbstractAction() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JTable table = (JTable) e.getSource();
-                int row = Integer.valueOf(e.getActionCommand());
-                StockTableModel model = (StockTableModel) table.getModel();
-                model.deleteRow(row);                
-            }
-        };
-        ButtonColumn deleteButton = new ButtonColumn(tb1, deleteAction, 5);*/
     }//GEN-LAST:event_msActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
@@ -430,14 +487,100 @@ public class Panel3 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_tb1MouseClicked
 
-    public void addRowData() {
-        DefaultTableModel model = (DefaultTableModel) reports.getModel();
-        Object rowData[] = new Object[3];
-        for (int i = 0; i < Registered.employees.size(); i++) {
-            rowData[0] = Registered.employees.get(i).getName();
+    private void isiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_isiMouseClicked
+        // TODO add your handling code here:
+        int n= isi.getSelectedRow();
+        if(n>-1)
+        {
+            this.index=n;
+            id= Registered.employees.get(index).getId();
+            Table2 t= new Table2();
+            t.setVisible(true);
         }
-    }
+    }//GEN-LAST:event_isiMouseClicked
 
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Driver.hidden();
+        Login l= new Login();
+        l.setVisible(true);
+    }//GEN-LAST:event_backActionPerformed
+
+    private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
+        // TODO add your handling code here:
+       
+            try {
+                finalize();
+            } catch (Throwable ex) {
+                Logger.getLogger(Panel3.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.setVisible(false); JOptionPane.showMessageDialog(null,"Thank you for using program");
+    }//GEN-LAST:event_closeActionPerformed
+public void viewIssuedItem()
+{
+     model = (DefaultTableModel) reports.getModel();
+        model.setRowCount(0);
+        Object[] rowData = new Object[3];
+        //System.out.println(Registered.stock.size());
+        for (int i = 0; i < Registered.IssuedItem.size(); i++) {
+            rowData[0] = Registered.IssuedItem.get(i).id;
+            rowData[1] = Registered.IssuedItem.get(i).getName();
+            rowData[2] = Registered.IssuedItem.get(i).getQuantity();
+            model.addRow(rowData);
+        }
+}
+
+public void viewReturnItem()
+{
+     model = (DefaultTableModel) reports.getModel();
+        model.setRowCount(0);
+        Object[] rowData = new Object[3];
+        //System.out.println(Registered.stock.size());
+        for (int i = 0; i < Registered.IssuedItem.size(); i++) {
+            if(Registered.IssuedItem.get(i).status.equals("Returned") || Registered.IssuedItem.get(i).status.equals("returned"))
+            {
+            rowData[0] = Registered.IssuedItem.get(i).id;
+            rowData[1] = Registered.IssuedItem.get(i).getName();
+            rowData[2] = Registered.IssuedItem.get(i).getQuantity();
+            model.addRow(rowData);
+            }
+        }
+}
+
+
+public void viewNotReturnItem()
+{
+     model = (DefaultTableModel) reports.getModel();
+        model.setRowCount(0);
+        Object[] rowData = new Object[3];
+        //System.out.println(Registered.stock.size());
+        for (int i = 0; i < Registered.IssuedItem.size(); i++) {
+            if(Registered.IssuedItem.get(i).status.equals("Not returned") || Registered.IssuedItem.get(i).status.equals("Not Returned"))
+            {
+            rowData[0] = Registered.IssuedItem.get(i).id;
+            rowData[1] = Registered.IssuedItem.get(i).getName();
+            rowData[2] = Registered.IssuedItem.get(i).getQuantity();
+            model.addRow(rowData);
+            }
+        }
+}
+public void viewOutOfStockItem()
+{
+     model = (DefaultTableModel) reports.getModel();
+        model.setRowCount(0);
+        Object[] rowData = new Object[3];
+        //System.out.println(Registered.stock.size());
+        for (int i = 0; i < Registered.IssuedItem.size(); i++) {
+            if(Registered.IssuedItem.get(i).getQuantity()==0)
+            {
+            rowData[0] = Registered.IssuedItem.get(i).id;
+            rowData[1] = Registered.IssuedItem.get(i).getName();
+            rowData[2] = Registered.IssuedItem.get(i).getQuantity();
+            model.addRow(rowData);
+            }
+        }
+}
     public void hide() {
         at.setVisible(false);
         ms.setVisible(false);
@@ -465,9 +608,12 @@ public class Panel3 extends javax.swing.JPanel {
     }
     DefaultTableModel model;
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
     private javax.swing.JButton at;
+    private javax.swing.JButton back;
+    private javax.swing.JButton close;
     private javax.swing.JLabel ct;
     private javax.swing.JTextField ctf;
     private javax.swing.JLabel icon;

@@ -9,7 +9,7 @@ package javaapplication19;
  *
  * @author A R F T
  */
-public class Request {
+public class Request  {
     
     private String itemName;
     private int itemQuant;
@@ -18,6 +18,8 @@ public class Request {
     {
         return this.itemName;
     }
+    
+    
     public void setName(String n)
     {
         this.itemName=n;

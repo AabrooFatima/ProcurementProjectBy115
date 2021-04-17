@@ -5,12 +5,15 @@
  */
 package javaapplication19;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author A R F T
  */
 public class Login extends javax.swing.JFrame {
-
+String status;
+static String emp;
     /**
      * Creates new form Login
      */
@@ -19,6 +22,7 @@ public class Login extends javax.swing.JFrame {
         a.setVisible(false);
        setResizable(false);
        // setSize(950,630);
+       
     }
 
     /**
@@ -59,6 +63,11 @@ public class Login extends javax.swing.JFrame {
         admin.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         admin.setText("Admin");
         admin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                adminMouseClicked(evt);
+            }
+        });
         admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminActionPerformed(evt);
@@ -69,6 +78,11 @@ public class Login extends javax.swing.JFrame {
         manager.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         manager.setText("Manager");
         manager.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        manager.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                managerMouseClicked(evt);
+            }
+        });
         manager.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 managerActionPerformed(evt);
@@ -79,6 +93,11 @@ public class Login extends javax.swing.JFrame {
         employ.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         employ.setText("Employee");
         employ.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        employ.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                employMouseClicked(evt);
+            }
+        });
         employ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 employActionPerformed(evt);
@@ -246,14 +265,44 @@ public class Login extends javax.swing.JFrame {
                   String p=pass.getText();
                   String log=id.getText();
                  
-                 
-                     /*if(p.equals("admin115") && log.equals("AFH115"))
-                     {
-                        
-                     }*/
-                      Forms f= new Forms("Admin");
-                         f.setVisible(true);
+                  if(status.equals("Admin"))
+                  {
+                      if(p.equals("admin115") && log.equals("AFH115"))
+                      {
+                          Forms f=new Forms(status);
+                          f.setVisible(true);
                          this.setVisible(false);
+                      }
+                      else
+                          JOptionPane.showMessageDialog(null,"Invalid id or Password");
+                  }
+                  else if(status.equals("Manager"))
+                  {
+                      if(p.equals("aab115") && log.equals("afh115"))
+                      {
+                          Forms f=new Forms(status);
+                          f.setVisible(true);
+                         this.setVisible(false);
+                      }
+                      else
+                          JOptionPane.showMessageDialog(null,"Invalid id or Password");
+                  }
+                  else
+                  {
+                      if(Registered.employees.contains(p) && log.equals("emp115"))
+                      {
+                          emp=p;
+                          Forms f=new Forms(status);
+                          f.setVisible(true);
+                         this.setVisible(false);
+                      }
+                      else
+                          JOptionPane.showMessageDialog(null,"Invalid id or Password");
+                      
+                  }
+                    pass.setText(null);
+                    id.setText(null);
+                         
                  
         // TODO add your handling code here:
     }//GEN-LAST:event_loginActionPerformed
@@ -275,6 +324,21 @@ public class Login extends javax.swing.JFrame {
         a.setVisible(true);
         a.setText("Admin");
     }//GEN-LAST:event_adminActionPerformed
+
+    private void adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminMouseClicked
+        // TODO add your handling code here:
+        status="Admin";
+    }//GEN-LAST:event_adminMouseClicked
+
+    private void managerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managerMouseClicked
+        // TODO add your handling code here:
+        status="Manager";
+    }//GEN-LAST:event_managerMouseClicked
+
+    private void employMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employMouseClicked
+        // TODO add your handling code here:
+        status="Employ";
+    }//GEN-LAST:event_employMouseClicked
 
     /**
      * @param args the command line arguments

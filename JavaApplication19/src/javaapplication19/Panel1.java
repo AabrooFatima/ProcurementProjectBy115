@@ -5,6 +5,9 @@
  */
 package javaapplication19;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -37,7 +40,8 @@ public class Panel1 extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        close = new javax.swing.JButton();
+        back = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -53,10 +57,9 @@ public class Panel1 extends javax.swing.JPanel {
         getid = new javax.swing.JTextField();
         get = new javax.swing.JLabel();
         add = new javax.swing.JButton();
-        rtf = new javax.swing.JTextField();
-        req = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        view = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -114,11 +117,27 @@ public class Panel1 extends javax.swing.JPanel {
         add(jButton3);
         jButton3.setBounds(0, 320, 260, 40);
 
-        jButton6.setBackground(new java.awt.Color(233, 236, 239));
-        jButton6.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jButton6.setText("Back");
-        add(jButton6);
-        jButton6.setBounds(90, 540, 90, 31);
+        close.setBackground(new java.awt.Color(233, 236, 239));
+        close.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        close.setText("Close");
+        close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeActionPerformed(evt);
+            }
+        });
+        add(close);
+        close.setBounds(80, 550, 90, 31);
+
+        back.setBackground(new java.awt.Color(233, 236, 239));
+        back.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+        add(back);
+        back.setBounds(80, 490, 90, 31);
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\A R F T\\Documents\\GitHub\\GitHub\\JavaApplication19\\images\\Skyline.jpg")); // NOI18N
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -175,7 +194,7 @@ public class Panel1 extends javax.swing.JPanel {
                 delActionPerformed(evt);
             }
         });
-        jPanel1.add(del, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 600, 120, -1));
+        jPanel1.add(del, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, 100, -1));
 
         edit.setBackground(new java.awt.Color(152, 204, 253));
         edit.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
@@ -186,7 +205,7 @@ public class Panel1 extends javax.swing.JPanel {
                 editActionPerformed(evt);
             }
         });
-        jPanel1.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 600, 110, -1));
+        jPanel1.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 600, 110, -1));
 
         cl.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
         cl.setText("Contact:");
@@ -218,25 +237,36 @@ public class Panel1 extends javax.swing.JPanel {
             }
         });
         jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 457, 128, -1));
-        jPanel1.add(rtf, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, 160, -1));
-
-        req.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        req.setText("Request:");
-        jPanel1.add(req, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 540, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Emp ID", "Name", "Request", "Action"
+                "Emp ID", "Name"
             }
         ));
         jTable2.setRowHeight(40);
         jTable2.setSelectionForeground(new java.awt.Color(223, 240, 254));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 640, 410));
+
+        view.setBackground(new java.awt.Color(152, 204, 253));
+        view.setFont(new java.awt.Font("Verdana", 0, 20)); // NOI18N
+        view.setText("View");
+        view.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewActionPerformed(evt);
+            }
+        });
+        jPanel1.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 590, 120, -1));
 
         jTable1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -328,6 +358,9 @@ public class Panel1 extends javax.swing.JPanel {
         
          jTable2.setVisible(true);
         jScrollPane2.setVisible(true);
+        get.setVisible(true);
+        getid.setVisible(true);
+        view.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
@@ -380,6 +413,43 @@ public class Panel1 extends javax.swing.JPanel {
        getid.setText(null);
     }//GEN-LAST:event_delActionPerformed
 
+    private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
+        // TODO add your handling code here:
+        String i= getid.getText();
+        Table t= new Table(i,index);
+        t.setVisible(true);
+    }//GEN-LAST:event_viewActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        int n= jTable2.getSelectedRow();
+        if(n >-1)
+        {
+            index = n;
+            id= Registered.employees.get(n).getId();
+            getid.setText(id);
+        }
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Driver.hidden();
+        Login l= new Login();
+        l.setVisible(true);
+    }//GEN-LAST:event_backActionPerformed
+
+    private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
+     try {
+         // TODO add your handling code here:
+         finalize();
+     } catch (Throwable ex) {
+         Logger.getLogger(Panel1.class.getName()).log(Level.SEVERE, null, ex);
+     }
+     JOptionPane.showMessageDialog(null,"Thank you for using program");
+     this.setVisible(false);
+    }//GEN-LAST:event_closeActionPerformed
+
     public void viewTableData(){
         model=(DefaultTableModel) jTable1.getModel();
         Object[] rowData=new Object[5];
@@ -393,8 +463,7 @@ public class Panel1 extends javax.swing.JPanel {
     DefaultTableModel model;
 public void hide()
 {
-    req.setVisible(false);
-    rtf.setVisible(false);
+    view.setVisible(false);
     get.setVisible(false);
     getid.setVisible(false);
     add.setVisible(false);
@@ -414,7 +483,9 @@ public void hide()
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
+    private javax.swing.JButton back;
     private javax.swing.JLabel cl;
+    private javax.swing.JButton close;
     private javax.swing.JButton del;
     private javax.swing.JButton edit;
     private javax.swing.JLabel el;
@@ -424,7 +495,6 @@ public void hide()
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -435,10 +505,9 @@ public void hide()
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel nl;
-    private javax.swing.JLabel req;
-    private javax.swing.JTextField rtf;
     private javax.swing.JTextField txt1;
     private javax.swing.JTextField txt2;
     private javax.swing.JTextField txt3;
+    private javax.swing.JButton view;
     // End of variables declaration//GEN-END:variables
 }

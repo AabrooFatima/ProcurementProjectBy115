@@ -68,6 +68,10 @@ public class Item {
         }
         return f;
     }
+    public String getCategory()
+    {
+        return this.category;
+    }
     public boolean setSupplier(String n, String e, String c,Item obj)
     {
         boolean f=false;
@@ -87,13 +91,17 @@ public class Item {
         
         Supplier.item.add(obj);
         f=true;
-        if(f)
-        System.out.println("Item added");
+       
+        //System.out.println("Item added");
         return f;
     }
     public String getSuppliername()
     {
         return this.Supplier.getName();
+    }
+    public Vendor getSupplier()
+    {
+        return this.Supplier;
     }
     
     public boolean validName(String name)

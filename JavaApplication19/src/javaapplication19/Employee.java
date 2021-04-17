@@ -57,7 +57,7 @@ public class Employee extends Person {
         return this.ID;
       
     }
-    public boolean deleteRequest(String n, String v)
+    public boolean deleteRequest(String n)
     {
         boolean flag=false;
         Request obj=new Request();

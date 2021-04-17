@@ -58,8 +58,7 @@ public class ItemTableModel extends AbstractTableModel {
                 return si.getId() ;
             case 1:
                 return si.getName();
-            case 2:
-                return 
+            
             
            }
            return null;

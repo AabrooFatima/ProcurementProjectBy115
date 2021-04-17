@@ -12,5 +12,16 @@ package javaapplication19;
 public class Issued_item extends Item {
     
     public String status;
-    
+    public String id;
+    public boolean setIssued(Item obj)
+    {
+        boolean f=false;
+        this.setName(obj.getName());
+        this.setQuantity(obj.getQuantity());
+        this.setCategory(obj.getCategory());
+         this.setSupplier(obj.getSupplier().getName(),obj.getSupplier().getEmail(),obj.getSupplier().getContact(), obj);
+        this.status= "Not returned";
+        f=true;
+        return f;
+    }
 }
