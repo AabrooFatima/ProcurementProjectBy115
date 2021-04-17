@@ -28,15 +28,7 @@ public Issued_item s= new Issued_item();
      */
     public Table2(String d,int i) {
         initComponents();
-        DefaultTableModel model;
-        obj= Registered.employees.get(index);
-      model= (DefaultTableModel) jTable1.getModel();
-        Object[] rowData = new Object[2];
-        for(int j=0;j<obj.requests.size();j++)
-        {
-           rowData[0]= obj.requests.get(j).getName();
-           rowData[1]= obj.requests.get(j).getQuant();
-        }
+        
     }
     public Table2()
     {
@@ -156,7 +148,17 @@ public Issued_item s= new Issued_item();
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        
+        DefaultTableModel model;
+        obj= Registered.employees.get(index);
+      model= (DefaultTableModel) jTable1.getModel();
+        Object[] rowData = new Object[2];
+        for(int j=0;j<obj.requests.size();j++)
+        {
+           rowData[0]= obj.requests.get(j).getName();
+           rowData[1]= obj.requests.get(j).getQuant();
+           model.addRow(rowData);
+        }
+       
         int n= jTable1.getSelectedRow();
         if(n>-1)
         {

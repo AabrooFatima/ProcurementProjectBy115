@@ -387,7 +387,7 @@ public class Panel1 extends javax.swing.JPanel {
             obj.setId();
             boolean f= a.addEmploy(obj);
             if(f)
-            System.out.println("Success"); 
+            JOptionPane.showMessageDialog(null,"Success"); 
         }
         txt1.setText(null);
         txt2.setText(null);
@@ -420,7 +420,7 @@ public class Panel1 extends javax.swing.JPanel {
         this.id=getid.getText();
        boolean f=a.deleteEmploy(id);
        if(f)
-       System.out.println("Successful");
+       JOptionPane.showMessageDialog(null,"Successful");
        else
            System.out.println("Unsccessful");
        getid.setText(null);

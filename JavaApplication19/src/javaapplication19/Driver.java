@@ -19,7 +19,11 @@ public class Driver {
     
     public static void main(String [] args)
     {
-     Registered r= new Registered();
+     
+     Registered.loadApprove();
+     Registered.loadEmploy();
+     Registered.loadIssued();
+     Registered.loadStock();
       l.setVisible(true);
     }
 }
