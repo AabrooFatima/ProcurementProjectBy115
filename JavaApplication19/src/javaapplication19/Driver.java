@@ -19,7 +19,7 @@ public class Driver {
     
     public static void main(String [] args)
     {
-     
+     Registered r= new Registered();
       l.setVisible(true);
     }
 }
