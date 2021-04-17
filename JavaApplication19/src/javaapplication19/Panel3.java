@@ -504,6 +504,13 @@ public class Panel3 extends javax.swing.JPanel {
         String t = itf1.getText();
         i.setItem(t, q, vn, vc, ve, c, i);
         Registered.stock.add(i);
+        
+         ctf.setText(null);
+        qtf.setText(null);
+         vtf.setText(null);
+        vtf1.setText(null);
+        vtf2.setText(null);
+        itf1.setText(null);
     }//GEN-LAST:event_addActionPerformed
 
     private void itf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itf1ActionPerformed
@@ -548,13 +555,14 @@ public class Panel3 extends javax.swing.JPanel {
 
     private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
         // TODO add your handling code here:
-       
-            try {
-                finalize();
-            } catch (Throwable ex) {
-                Logger.getLogger(Panel3.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            this.setVisible(false); JOptionPane.showMessageDialog(null,"Thank you for using program");
+        Registered r = new Registered();
+        r.saveApproved();
+        r.saveStock();
+        r.saveEmploy();
+        r.saveIssued();
+            
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null,"Thank you for using program");
     }//GEN-LAST:event_closeActionPerformed
 
     private void sp3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sp3MouseClicked

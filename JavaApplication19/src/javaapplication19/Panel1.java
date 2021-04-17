@@ -389,7 +389,9 @@ public class Panel1 extends javax.swing.JPanel {
             if(f)
             System.out.println("Success"); 
         }
-        
+        txt1.setText(null);
+        txt2.setText(null);
+        txt3.setText(null);
     }//GEN-LAST:event_addActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
