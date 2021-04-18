@@ -28,6 +28,7 @@ Employee obj=new Employee();
       obj= Registered.employees.get(i);
       if(obj.getId().equals(Login.emp))
       {
+          obj= Registered.employees.get(i);
           break;
       }
   }
@@ -272,10 +273,10 @@ Employee obj=new Employee();
         model.setRowCount(0);
         Object[] rowData = new Object[3];
         //System.out.println(Registered.employees.size());
-        for (int i = 0; i < obj.issued.size(); i++) {
-            rowData[0] = obj.issued.get(i).getName();
-            rowData[1] = obj.issued.get(i).getCategory();
-             rowData[2] = obj.issued.get(i).status;
+        for (int i = 0; i < Registered.IssuedItem.size(); i++) {
+            rowData[0] = Registered.IssuedItem.get(i).getName();
+            rowData[1] = Registered.IssuedItem.get(i).getCategory();
+             rowData[2] = Registered.IssuedItem.get(i).status;
             model.addRow(rowData);
         }
     }//GEN-LAST:event_jButton2ActionPerformed

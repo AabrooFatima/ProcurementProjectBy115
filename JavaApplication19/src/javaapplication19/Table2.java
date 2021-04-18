@@ -183,7 +183,11 @@ public Issued_item s= new Issued_item();
             boolean f=t.setSupplier(Registered.stock.get(e).getSuppliername(), Registered.stock.get(e).getSupplier().getEmail(), Registered.stock.get(e).getSupplier().getContact(), t);
              f=s.setIssued(t);
              s.id=obj.getId();
-             f=obj.addIssue(s);
+             s.setName(t.getName());
+             s.setQuantity(t.getQuantity());
+             s.setSupplier(t.getSuppliername(), t.getSupplier().getEmail(), s.getSupplier().getContact(), t);
+            f= Registered.IssuedItem.add(s);
+             
             f= generateReceipt();
             Registered.stock.get(e).setQuantity(Registered.stock.get(e).getQuantity()-n);
             if(f)
